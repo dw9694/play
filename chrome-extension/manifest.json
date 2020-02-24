@@ -1,15 +1,10 @@
 {
-  "name": "play-video",
-  "description": "Play video",
-  "version": "0.1",
-  "permissions": [
-    "contextMenus",
-    "http://*/*"
-  ],
+  "manifest_version": 2,
+  "version": "0.2",
+  "name": "Play",
+  "description": "Do you like movies?",
   "background": {
-    "scripts": [
-      "script.js"
-    ]
+    "scripts": ["script.js"]
   },
-  "manifest_version": 2
+  "permissions": ["contextMenus", "http://*/*"]
 }
