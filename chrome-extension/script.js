@@ -1,8 +1,8 @@
-const HOME = "localhost", PORT = "7531", URL = `http://${HOME}:${PORT}`;
+const HOME = "localhost", PORT = "7531", URL = `http://${HOME}:${PORT}/video`;
 
 const getVideo = async (title) => {
     const text = encodeURIComponent(title.selectionText);
-    const query = `/?query=${text}&filters=long&longer=4000&count=200`;
+    const query = `?q=${text}&filters=long&longer=4000&count=200`;
     const request = `${URL}${query}`;
 
     const response = await fetch(request);
