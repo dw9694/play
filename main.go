@@ -34,8 +34,7 @@ func handlerVideo(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 
 	items, _ := json.Marshal(res)
-	values, _ := json.Marshal(v)
-	w.Write(items)
-	log.Printf("[REQUEST] %s\n", values)
-	log.Printf("[RESPONSE] %s\n", items)
+	if _, err := w.Write(items); err != nil {
+		panic(err.Error())
+	}
 }
