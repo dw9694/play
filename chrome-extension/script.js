@@ -1,35 +1,25 @@
-const HOME = "localhost", PORT = "7531", URL = `http://${HOME}:${PORT}/video`;
-
-const getVideo = async (title) => {
-    const text = encodeURIComponent(title.selectionText);
-    const query = `?q=${text}&filters=long&longer=4000&count=200`;
-    const request = `${URL}${query}`;
-
-    const response = await fetch(request);
-    const data = await response.json();
-    openWin(data.response);
-};
+const getVideo = async (t) => {
+	let url = "http://localhost:7531/video",
+		selection = encodeURIComponent(t.selectionText),
+		res = await fetch(`${url}?q=${selection}&filters=long&longer=4000&count=200`),
+		data = await res.json()
+	openWin(data.response)
+}
 
 const openWin = (data) => {
-    const win = window.open("", "_blank", "width=800,height=400");
-    const html = `
+	let links = ""
+	for (let i of data.items) {
+		links += `<div><a href="${i.player}">${i.title}</a></div>`
+	}
+	let html = `
       <html lang="en">
         <div>Count: ${data.count}</div>
-        <div>${get_links(data)}</div>
-      </html>`;
-    win.document.write(html);
-};
+        ${links}
+      </html>`
+	let win = window.open("", "_blank", "width=800,height=400")
+	win.document.write(html)
+}
 
-const get_links = (data) => {
-    let links = "";
-    for (let i of data.items) {
-        links += `<div><a href="${i.player}">${i.title}</a></div>`;
-    }
-    return links;
-};
-
-chrome.contextMenus.create({
-    "title": "vk.com",
-    "contexts": ["selection"],
-    "onclick": getVideo
-});
+chrome.contextMenus.create(
+	{"title": "vk.com", "contexts": ["selection"], "onclick": getVideo}
+)
