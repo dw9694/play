@@ -21,5 +21,5 @@ const openWin = (data) => {
 }
 
 chrome.contextMenus.create(
-	{"title": "vk.com", "contexts": ["selection"], "onclick": getVideo}
+	{"title": "Search video", "contexts": ["selection"], "onclick": getVideo}
 )
