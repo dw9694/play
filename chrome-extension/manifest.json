@@ -3,6 +3,9 @@
   "version": "0.2",
   "name": "Play",
   "description": "Do you like movies?",
+  "icons": {
+    "128": "icon_128.png"
+  },
   "background": {
     "scripts": ["script.js"]
   },
