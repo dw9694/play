@@ -9,5 +9,5 @@
   "background": {
     "scripts": ["script.js"]
   },
-  "permissions": ["contextMenus", "http://*/*"]
+  "permissions": ["contextMenus", "http://*/*", "https://*/*"]
 }
