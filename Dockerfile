@@ -8,7 +8,7 @@ COPY go.mod .
 COPY go.sum .
 
 RUN go mod download
-COPY ./server/main.go .
+COPY ./backend/main.go .
 
 RUN CGO_ENABLED=0 go build -o /go/bin/play
 
