@@ -2,7 +2,7 @@
 This is a Chrome extension that allows you to find a highlighted movie.
 
 ## Install
-* Install chrome-extension, go to `chrome://extensions/`
+* Go to `chrome://extensions/`, install frontend as chrome-extension 
 * Set token [vkontakte](https://oauth.vk.com/authorize?client_id=7231959&scope=16&redirect_uri=https://oauth.vk.com/blank.html&display=page&response_type=token&revoke=1) to .env file
 * Build docker image
 ```bash
