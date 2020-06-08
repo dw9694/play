@@ -27,5 +27,9 @@ func handlerVideo(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 
 	items, _ := json.Marshal(res)
-	w.Write(items)
+
+	_, e := w.Write(items)
+	if e != nil {
+		panic(e)
+	}
 }
