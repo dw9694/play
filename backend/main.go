@@ -17,6 +17,7 @@ func main() {
 	log.Fatal(http.ListenAndServe(":7531", nil))
 }
 
+// Handle video.search
 func handlerVideo(w http.ResponseWriter, r *http.Request) {
 	res, err := client.Do(vkapi.NewRequest("video.search", "", r.URL.Query()))
 	if err != nil {
