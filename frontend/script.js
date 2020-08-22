@@ -20,8 +20,13 @@ function prepareHtml(data) {
 
   for (i of data.items) {
     let div = document.createElement('div');
-    div.innerHTML = `<a href="${i.player}">${i.title}</a>`
-    html.appendChild(div);
+    if (i.description != "") {
+      div.innerHTML = `<abbr title="${i.description}"><a href="${i.player}">${i.title}▾<a></abbr>`
+      html.appendChild(div);
+    } else {
+      div.innerHTML = `<a href="${i.player}">${i.title}</a>`
+      html.appendChild(div);
+    }
   }
   return html.outerHTML;
 }
