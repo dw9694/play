@@ -1,4 +1,4 @@
-let URL = "http://localhost:7531/video";
+const URL = "http://localhost:7531/video";
 
 async function getVideo(text) {
   let s = encodeURIComponent(text.selectionText);
