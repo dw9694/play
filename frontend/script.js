@@ -22,11 +22,10 @@ function prepareHtml(data) {
     let div = document.createElement('div');
     if (i.description != "") {
       div.innerHTML = `<abbr title="${i.description}"><a href="${i.player}">${i.title}▾<a></abbr>`
-      html.appendChild(div);
     } else {
       div.innerHTML = `<a href="${i.player}">${i.title}</a>`
-      html.appendChild(div);
     }
+    html.appendChild(div);
   }
   return html.outerHTML;
 }
